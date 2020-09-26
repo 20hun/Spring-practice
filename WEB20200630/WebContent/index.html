@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript 연습2</title>
+<script type="text/javascript">
+	/* var array = [0,1];
+	
+	array.push(2);
+	array.push(3);
+	array.push(4);
+	
+	alert(array);
+	 */
+	//for in 반복문
+	/* var array = ['포도','사과','바나나','망고'];
+	
+	for(var i in array){
+		alert(array[i]);
+	} */
+	
+	/* var output = '';
+	
+	for(var i = 0; i<9; i++){
+		for(var j = 0; j<=i; j++){
+			output += '*';
+		}
+		output += '\n';
+	}
+	
+	alert(output); */
+	
+	/* var fnc = function(){
+		var output = prompt('숫자를 입려해주세요.','숫자');
+		alert(output);
+	};
+	
+	fnc();*/
+	//alert(fnc);
+	
+	/* fnc1();
+	//선언적 함수는 미리 만들고 익명 함수는 변수에 대입할 때 만들어짐
+	function fnc1(){
+		alert('함수A');
+	}
+	
+	function fnc1(){
+		alert('함수B'); //재정의 > 이게 실행
+	}
+	
+	fnc2();
+	//fnc2가 뒤에 만들어져서 실행 안됨, 선언적 함수인 fnc1은 실행 됨
+	var fnc2 = function(){
+		alert('함수1');
+	};
+	var fnc2 = function(){
+		alert('함수2');
+	};
+	*/
+
+	//선언함수가 먼저 읽히기 때문에 익명함수로 덮어씌어짐 > 함수A가 출력
+	/* var fnc3 = function(){
+		alert('함수A');
+	};
+	function fnc3(){
+		alert('함수B');
+	}
+	fnc3(); */
+	
+	/* function f(x){
+		return x*x;
+	}
+	
+	var n = f(3);
+	
+	alert(n); */
+	
+	/* function callTenTimes(callback){
+		for(var i=0; i<10; i++){
+			callback();
+		}
+	}
+	
+	var callback = function(){
+		alert('함수호출');
+	};
+	
+	callTenTimes(callback); */
+	
+	function returnFunction(){
+		return function(){
+			alert('Hello Function...!');
+		};
+	}
+	
+	returnFunction()();
+	//아래와 같음
+	//var rfnc = returnFunction();
+	//rfnc();
+	
+	/* setTimeout(function(){
+		alert('3초가 지났습니다. ㅇㅂㅇ');
+	},3000); //3000밀리세컨드 = 3초 */
+	
+	/* var intervalID = setInterval(function(){
+		alert('<p>'+new Date()+'</p>');
+	},1000);
+	
+	setTimeout(function(){
+		clearInterval(intervalID);
+	},10000); */
+	
+	var willEval = '';
+	willEval += 'var number = 10;';
+	willEval += 'alert(number);';
+	eval(willEval);
+	
+	/* var number = 1 / 1;
+	alert(number + " : " + isFinite(number)); */
+	
+	//if(NaN == NaN){ NaN은 자기 자신 비교 불가
+	/* if(isNaN('123원')){
+		alert('NaN == NaN');
+	}else{
+		alert('NaN != NaN');
+	} */
+	
+	/* var num = '1234원';
+	alert(Number(num)); //NaN 출력
+	alert(parseInt(num)); //숫자만 출력 */
+	
+	var product = {
+		제품명: '7D 건조 망고',
+		유형: '당절임',
+		성분: '망고, 설탕, 메타중아황산나트륨, 치자황색소',
+		원산지: '필리핀'
+	};
+	
+	var object = {
+		//'with space' : 273		
+		number : 273,
+		string : 'RintIanTta',
+		boolean : true,
+		array : [52,273,103,32],
+		method : function(){
+			alert("메소드 실행");	
+		}
+	};
+	
+	alert(product.제품명);
+	
+	//alert(object['with space']);
+	
+	object.method();
+	
+	var person = {
+		name : '윤인성',
+		eat : function(food){
+			alert(this.name+'이'+food+'을/를 먹습니다');
+		}
+	};
+	
+	person.eat('밥');
+	/* alert(person.eat('밥')) > person.eat('밥')먼저 실행해서
+	this.name+'이'+food+'을/를 먹습니다' 알림창 뜨고
+	alert(윤인성이 밥을 먹습니다) > '윤인성이 밥을 먹습니다'라는 변수는 무슨 값인데?
+	아무런 값이 없으니 undefined가 뜸 */
+	var student = {};
+	
+	student.이름 = '윤인성';
+	student.취미 = '악기';
+	student.특기 = '프로그래밍';
+	student.장래희망 = '생명공학자';
+	
+	student.toString = function() {
+		var output = '';
+		for(var key in this){ //this = student
+			if(key != 'toString'){ //toString도 key라서
+				output += key+'\t'+this.key+'\n';
+			}
+		}
+		return output;
+	};
+	alert(student.toString());
+	
+	delete(student.장래희망);
+	
+	alert(student.toString());
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

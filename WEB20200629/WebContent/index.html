@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript 연습1</title>
+	<script type="text/javascript">
+	/* var pi = 3.14;
+	pi = '문자열';
+	alert(pi); 
+	
+		window.onload = function(){
+			var list = '';
+			list += '<ul>';
+			list += '<li>Hello</li>';
+			list += '<li>JavaScript..!</li>';
+			list += '</ul>'
+			
+			document.body.innerHTML = list;
+	}
+	
+	alert(typeof('String'));
+	alert(typeof(273));
+	alert(typeof(true));
+	alert(typeof(function(){}));
+	alert(typeof({}));
+	alert(typeof(alpha)); */
+	
+	var input = prompt('메시지를 입력해주세요');
+	alert(input);
+	
+	var input = confirm("수락하시겠습니까?");
+	alert(input);
+	
+	if(273 < 100){
+		alert('273 < 100 => true');
+	}
+	
+	alert("종료");
+	
+	/* var date = new Date(); //객체 생성시 new, Date()가 새성자
+	var hour = date.getHours(); //현재 시간 반환
+	
+	if(hour < 12){
+		alert("오전입니다.");
+	}else{
+		alert("오후입니다.");
+	}
+	alert(hour); */
+	
+	/* var input = Number(prompt('숫자를 입력하세요','숫자'));
+	//Number라는 함수는 문자형 자료형을 숫자형으로 형변환
+	//prompt쓰면 뭘 입력하든 문자로 받아들이기 때문
+	
+	switch(input%2){
+	case 0 :
+		alert("짝수입니다.")
+		break;
+	case 1 :
+		alert("홀수입니다.")
+		break;
+	default :
+		alert("숫자가 아닙니다.")
+		break;
+	} */
+	
+	/* for(var i=0; i<100; i++){
+		alert("출력");
+	} */
+	
+	var array = [273,'String',true,function(){},{},[273,103]];
+	alert(array);
+	alert(array.length);
+	alert(array[1]);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>선택자 연습</title>
+<style type="text/css">
+
+	*{
+		font-family: serif;
+		font-size: 0.8em;
+		font-weight: 5;
+	}
+	
+	.header{
+		color: green;
+	}
+	.fs20{
+		font-size: 20px;
+	}
+	
+	#colorBlue{
+		color: blue !important;
+	}
+	
+	h2, h3, #colorBlue, .fs20{
+		color: red;
+	}
+	
+	/*후손*/
+	ul .list{ 
+		background-color: green;
+	}
+	
+	/*자손*/
+	.sub > li{
+		background-color: purple;
+	}
+</style>
+</head>
+<body>
+	<h2>Header-0</h2>
+	<h2 id="colorBlue">Header-1</h2>
+	<h2>Header-2</h2>
+	<h2 class="header fs20">Header-3</h2>
+	<h2>Header-4</h2>
+	<h3>Header-5</h3>
+	<h3 class="header">Header-6</h3>
+	<h3>Header-7</h3>
+	
+	<ul>
+		<li class="list">1</li>
+		<li class="list">2</li>
+		<li class="list">3</li>
+		<li class="list">4
+			<ul class="sub">
+				<li>4-1</li>
+				<li>4-2</li>
+					<ul>
+						<li>4-2-3</li>
+					</ul>
+				<li>4-3</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

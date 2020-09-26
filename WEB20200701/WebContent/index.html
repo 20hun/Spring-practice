@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String 객체</title>
+
+<script type="text/javascript">
+	
+	/* var characters = prompt('사용할 비밀번호를 입력해주세요.', '6글자 이상');
+	
+	if(characters.length < 6){
+		alert('6글자 이상으로 입력해 주세요');
+	}else{
+		alert('참 잘했어요');
+	} */
+	
+	//var str = 'abcd EFGH cd';
+
+	/* alert(str.charAt(3));
+	alert(str.concat("ijk")); //= alert(str+'ijk') 둘다 str 원본은 안바뀜
+	
+	var index = str.indexOf('cd');
+	alert(index);
+	alert(str.replace('cd','CD')); //처음 나오는 하나만 바꿈
+	
+	
+	alert(str.slice(2,7)); //마지막은 포함x*/
+	
+	/* var str2 = '2020-07-01';
+	
+	var array = str2.split('-');
+	
+	for(var i =0; i<array.length; i++){
+		alert(array[i]);
+	} */
+	
+	/*
+	alert(str.substr(2,7)); //index 2부터 7개 출력
+	alert(str.substring(2,7)); //index 2~(7-1) 출력
+	*/
+	/*
+	var output = '';
+	for(var key in window){
+		output += '*'+key+': '+window[key]+'\n';
+	} //window객체에도 key와 값이 있을 것이라 확인해보자
+	
+	alert(output);
+	
+	window.open('http://hanbit.co.kr','child','width=600, height=300',true);
+				//새창 띄우는 주소 + 내 사이트 안에서의 이동(ex.회원가입창), child=새 창의 이름, 창의 크기 등 옵션
+	*/		
+	var child = window.open('','','width=300,height=200');
+	var width = screen.width;
+	var height = screen.height;
+	
+	child.moveTo(0,0);
+	child.resizeTo(width,height);
+	
+	setInterval(function(){
+		child.resizeBy(-20,-20);
+		child.moveBy(10,10);
+	},1000);
+	
+	
+	//location.href = 'http://www.naver.com';
+	
+	/* window.onload = function(){
+		var id = document.getElementById('aaa').value;
+		//onload 안쓰면 순서 상으로 이게 먼저 실행되기 때문에 가져올 value(값)이 없어 오류
+		
+		alert(id);
+	}; */
+	
+	
+	
+</script>
+</head>
+<body>
+	<h1>Process - 1</h1>
+	<h2>Process - 2</h2>
+	<br>
+	ID : <input type="text" id="aaa" value="test">
+</body>
+</html>

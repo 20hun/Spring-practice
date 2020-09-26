@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문서 객체 모델(Document Object Model - DOM)</title>
+<script type="text/javascript">
+	output = '';
+	for(var key in window){
+		output += '*'+key+': '+window[key]+'\n';
+	} //window객체에도 key와 값이 있을 것이라 확인해보자
+	
+	alert(output);
+	
+	window.onload = function(){ //onload로 태그 먼저 생성해야 객체 생성하지
+		var header = document.getElementById('header');
+		
+		header.innerHTML = 'with getElementById()';
+		// '' 안에 있는 문자열을  html <h>에 넣어라
+		
+	}; //document는 html문서를 뜻함
+	
+	function formCheck() {
+		//onsubmit을 처리할 함수는 반드시 return을 true or false를 해야한다.
+		//사용자가 입력한 id 값을 읽어와서 입력을 했는지 판단하고 입력하지 않았으면 경고창을 띄어준다.
+		var user_id = document.getElementById('user_id').value;
+		var user_pw = document.getElementById('user_pw').value;
+		var user_pw2 = document.getElementById('user_pw2').value;
+		var gender = document.getElementsByName('gender'); //체크 됐는지 확인이니까 value 필요x
+		
+		
+		if(user_id == ''){
+			alert('ID는 필수 입력 사항 입니다.');
+			return false;
+		}else if(3>user_id.length || user_id.length>8){
+			alert("ID는 3글자 이상 8글자 이하로 입력해주세요")
+			return false;
+		}
+		
+		for(var i = 0 ; i<user_id.length ; i++){
+			var ch = user_id.charAt(i);
+			if(!isNaN(ch)){
+				alert('ID는 숫자를 포함하면 안됩니다.');
+				break; // 더 반복할 필요 없으니
+			}
+		}
+		
+		if(user_pw == ''){
+			alert('PW는 필수 입력 사항입니다.');
+			return false;
+		}else if(4>user_pw.length || user_pw.length>10){
+			alert("PW는 4<= <=10");
+			return false;
+		}
+		
+		if(user_pw != user_pw2){
+			alert('비밀번호 일치x');
+			return false;
+		}
+		
+		//성별을 선택했는지 판단, gender는 여러개인 배열이니까 반복문을 떠올리자
+		//체크가 됐는지 확인하기 위한 용도의 변수
+		var cnt = 0;
+		for(var i = 0; i<gender.length; i++){
+			if(gender[i].checked == true){
+				cnt++;
+			}
+		}
+		
+		if(cnt == 0){
+			alert("성별 선택해주세요")
+			return false;
+		}
+		
+		return true;
+	}
+	
+</script>
+</head>
+<body>
+	<h1 id="header">Header - 0</h1>
+	
+	<form action="" onsubmit="return formCheck();">
+		ID : <input type="text" id="user_id"> <br>
+		PW : <input type="password" id="user_pw"> <br>
+		비밀번호 확인 : <input type="password" id="user_pw2"> <br>
+		
+		남성 <input type="radio" name="gender"> 여성 <input type="radio" name="gender"> <br>
+		
+		<input type="submit" value="회원가입">
+	</form>
+</body>
+</html>
